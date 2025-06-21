@@ -63,10 +63,12 @@ public class UserInterface
                 Console.Clear();
             }
 
-            Player player = new Player(name, option, level, numberCorrect, numberIncorrect);
-            player.PercentageCorrect = (double)(numberCorrect / numberOfQuestions) * 100.0;
+            double percentageCorrect = ((double)numberCorrect / numberOfQuestions) * 100.0;
+            Player player = new Player(name, option, level, numberCorrect, numberIncorrect, percentageCorrect);
+            
 
             _club.GamePlayers.Add(player);
+            _club.SavePlayer(player);
         }
 
         ClearTheScreen();

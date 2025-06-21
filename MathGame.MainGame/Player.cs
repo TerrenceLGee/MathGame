@@ -3,7 +3,6 @@
 namespace MathGame.MainGame;
 public class Player
 {
-    private static int _id = 0;
     public int ID { get; set; }
     public string? Name { get; set; }
     public GameOption GameOperation { get; set; }
@@ -12,13 +11,13 @@ public class Player
     public int NumberWrong { get; set; }
     public double PercentageCorrect { get; set; }
 
-    public Player(string? name, GameOption operation, DifficultyLevel level, int numberCorrect, int numberWrong)
+    public Player(string? name, GameOption operation, DifficultyLevel level, int numberCorrect, int numberWrong, double percentageCorrect)
     {
-        ID = _id++;
         Name = name;
         GameOperation = operation;
         Level = level;
         NumberCorrect = numberCorrect;
         NumberWrong = numberWrong;
+        PercentageCorrect = percentageCorrect;
     }
 }

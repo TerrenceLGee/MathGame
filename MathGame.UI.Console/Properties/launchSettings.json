@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MathGame.UI.Console": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\tlg20\\CSharpAcademy\\MathGame.UI.Console\\MathGame.UI.Console\\"
+    }
+  }
+}
