@@ -33,7 +33,8 @@ public class DataRetrieval
                                             (DifficultyLevel)Enum.Parse(typeof(DifficultyLevel), dataReader.GetString(3)),
                                             dataReader.GetInt32(4),
                                             dataReader.GetInt32(5),
-                                            dataReader.GetDouble(6)
+                                            dataReader.GetDouble(6),
+                                            dataReader.GetString(7)
                                             ));
                                 }
                                 catch (FormatException ex)

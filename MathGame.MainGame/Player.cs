@@ -10,8 +10,9 @@ public class Player
     public int NumberCorrect { get; set; }
     public int NumberWrong { get; set; }
     public double PercentageCorrect { get; set; }
+    public string? ElapsedTime { get; set; }
 
-    public Player(string? name, GameOption operation, DifficultyLevel level, int numberCorrect, int numberWrong, double percentageCorrect)
+    public Player(string? name, GameOption operation, DifficultyLevel level, int numberCorrect, int numberWrong, double percentageCorrect, string? elapsedTime)
     {
         Name = name;
         GameOperation = operation;
@@ -19,5 +20,6 @@ public class Player
         NumberCorrect = numberCorrect;
         NumberWrong = numberWrong;
         PercentageCorrect = percentageCorrect;
+        ElapsedTime = elapsedTime;
     }
 }

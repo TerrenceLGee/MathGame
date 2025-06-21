@@ -44,6 +44,8 @@ public class UserInterface
             string question = string.Empty;
             int correctAnswer, userAnswer;
 
+            DateTime startingTime = DateTime.Now;
+
             for (int i = 0; i < numberOfQuestions; i++)
             {
                 (int x, int y) = _game.GetValidOperands(option, level);
@@ -63,12 +65,19 @@ public class UserInterface
                 Console.Clear();
             }
 
+            DateTime endingTime = DateTime.Now;
+            TimeSpan elapsedTime = endingTime - startingTime;
+            string timeTaken = $"{elapsedTime.Hours}h:{elapsedTime.Minutes}m:{elapsedTime.Seconds}s";
+
             double percentageCorrect = ((double)numberCorrect / numberOfQuestions) * 100.0;
-            Player player = new Player(name, option, level, numberCorrect, numberIncorrect, percentageCorrect);
+            Player player = new Player(name, option, level, numberCorrect, numberIncorrect, percentageCorrect, timeTaken);
             
 
             _club.GamePlayers.Add(player);
             _club.SavePlayer(player);
+
+            AnsiConsole.MarkupLine($"[lightsalmon1]Time it took to compete game\n{timeTaken}[/]");
+            ClearTheScreen();
         }
 
         ClearTheScreen();
@@ -141,6 +150,7 @@ public class UserInterface
         table.AddColumn("[darkgoldenrod]Number Correct[/]");
         table.AddColumn("[darkgoldenrod]Number Wrong[/]");
         table.AddColumn("[darkgoldenrod]Percentage Correct[/]");
+        table.AddColumn("[darkgoldenrod]Time Elapsed[/]");
 
         foreach (Player player in club.GamePlayers)
         {
@@ -150,7 +160,8 @@ public class UserInterface
                 $"{player.Level}",
                 $"{player.NumberCorrect}",
                 $"{player.NumberWrong}",
-                $"{player.PercentageCorrect/100:P}");
+                $"{player.PercentageCorrect/100:P}",
+                $"{player.ElapsedTime}");
         }
 
         AnsiConsole.Write(table);

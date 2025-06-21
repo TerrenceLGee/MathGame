@@ -27,7 +27,8 @@ public class DatabaseInitializer
                         Difficulty Text,
                         Correct Integer,
                         Wrong Integer,
-                        Percentage Real);";
+                        Percentage Real,
+                        Elapsed Text);";
 
                     tableCommand.ExecuteNonQuery();
                 }

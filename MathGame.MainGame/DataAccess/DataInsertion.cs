@@ -17,8 +17,9 @@ public class DataInsertion
                 int correct = player.NumberCorrect;
                 int wrong = player.NumberWrong;
                 double percentage = player.PercentageCorrect;
+                string elapsed = player.ElapsedTime!;
 
-                insertCommand.CommandText = $"INSERT INTO players (Name, Operation, Difficulty, Correct, Wrong, Percentage) VALUES(@Name, @Operation, @Difficulty, @Correct, @Wrong, @Percentage)";
+                insertCommand.CommandText = $"INSERT INTO players (Name, Operation, Difficulty, Correct, Wrong, Percentage, Elapsed) VALUES(@Name, @Operation, @Difficulty, @Correct, @Wrong, @Percentage, @Elapsed)";
 
                 insertCommand.Parameters.AddWithValue("@Name", name);
                 insertCommand.Parameters.AddWithValue("@Operation", operation);
@@ -26,6 +27,7 @@ public class DataInsertion
                 insertCommand.Parameters.AddWithValue("@Correct", correct);
                 insertCommand.Parameters.AddWithValue("@Wrong", wrong);
                 insertCommand.Parameters.AddWithValue("@Percentage", percentage);
+                insertCommand.Parameters.AddWithValue("@Elapsed", elapsed);
 
                 insertCommand.ExecuteNonQuery();
 
